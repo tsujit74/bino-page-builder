@@ -39,9 +39,9 @@ curl -X POST https://your-app.vercel.app/api/pages \
   }'
 
 ## 🔗 Live Demo
-https://your-app.vercel.app/about-bino
+https://bino-page-builder.vercel.app/about-bino
 
-https://your-app.vercel.app/how-it-works
+https://bino-page-builder.vercel.app/how-it-works
 
 ## 🧩 Built With
 ✅ Next.js 15 (App Router)
