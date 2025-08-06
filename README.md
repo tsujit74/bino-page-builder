@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Bino Dynamic Page Builder
 
-## Getting Started
+This is a **Next.js App Router** project that lets you dynamically create and serve new pages via a simple POST API. Ideal for powering quick informational or promotional pages linked to **[Bino](https://bino.bot)**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🧠 How It Works
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Use the `/api/pages` endpoint to create new pages by sending a `slug` and an array of components.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### ✅ POST Endpoint
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+POST /api/pages
+Content-Type: application/json
+### 🔧 Request Body
+{
+  "slug": "about-bino",
+  "components": [
+    { "type": "TextSection", "props": { "title": "What is Bino?", "text": "Bino is a WhatsApp-based search assistant." } },
+    { "type": "StatsBox", "props": { "label": "Users", "value": "10K+" } },
+    { "type": "ImageBlock", "props": { "src": "/bino.png", "alt": "Bino Logo" } },
+    { "type": "CTA", "props": { "buttonText": "Try Bino", "link": "https://bino.bot" } }
+  ]
+}
 
-## Learn More
+## Sample CURL
 
-To learn more about Next.js, take a look at the following resources:
+curl -X POST https://your-app.vercel.app/api/pages \
+  -H "Content-Type: application/json" \
+  -d '{
+    "slug": "about-bino",
+    "components": [
+      { "type": "TextSection", "props": { "title": "What is Bino?", "text": "Bino is a WhatsApp-based search assistant." } },
+      { "type": "StatsBox", "props": { "label": "Users", "value": "10K+" } },
+      { "type": "ImageBlock", "props": { "src": "/bino.png", "alt": "Bino Logo" } },
+      { "type": "CTA", "props": { "buttonText": "Try Bino", "link": "https://bino.bot" } }
+    ]
+  }'
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔗 Live Demo
+https://your-app.vercel.app/about-bino
 
-## Deploy on Vercel
+https://your-app.vercel.app/how-it-works
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🧩 Built With
+✅ Next.js 15 (App Router)
+✅ Tailwind CSS v4
+✅ TypeScript
+✅ 5 Reusable Components: Card, ImageBlock, TextSection, StatsBox, CTA
+✅ In-memory store (pagesStore) for dynamic page generation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+

@@ -1,7 +1,6 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+module.exports = {
+  reactStrictMode: true,
+  onDemandEntries: {
+    maxInactiveAge: 1000 * 60 * 60, // 1 hour
+  },
 };
-
-export default nextConfig;

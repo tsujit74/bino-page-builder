@@ -1,0 +1,92 @@
+{
+  "bino-help": [
+    {
+      "type": "TextSection",
+      "props": {
+        "title": "Need Help?",
+        "text": "Here�s how to use Bino step-by-step."
+      }
+    },
+    {
+      "type": "StatsBox",
+      "props": {
+        "label": "Response Time",
+        "value": "1s avg"
+      }
+    },
+    {
+      "type": "ImageBlock",
+      "props": {
+        "src": "/bino.png",
+        "alt": "Chat with Bino"
+      }
+    },
+    {
+      "type": "CTA",
+      "props": {
+        "buttonText": "Chat Now",
+        "link": "https://bino.bot/"
+      }
+    }
+  ],
+  "about-bino": [
+    {
+      "type": "TextSection",
+      "props": {
+        "title": "What is Bino?",
+        "text": "Bino is a WhatsApp-based search assistant."
+      }
+    },
+    {
+      "type": "StatsBox",
+      "props": {
+        "label": "Users",
+        "value": "10K+"
+      }
+    },
+    {
+      "type": "ImageBlock",
+      "props": {
+        "src": "/bino.png",
+        "alt": "Bino Logo"
+      }
+    },
+    {
+      "type": "CTA",
+      "props": {
+        "buttonText": "Try Bino",
+        "link": "https://bino.bot/"
+      }
+    }
+  ],
+  "how-it-works": [
+    {
+      "type": "TextSection",
+      "props": {
+        "title": "How It Works",
+        "text": "Bino helps you search instantly via WhatsApp. Just message and get results!"
+      }
+    },
+    {
+      "type": "ImageBlock",
+      "props": {
+        "src": "/bino.png",
+        "alt": "Using Bino"
+      }
+    },
+    {
+      "type": "StatsBox",
+      "props": {
+        "label": "Avg. Response Time",
+        "value": "1s"
+      }
+    },
+    {
+      "type": "CTA",
+      "props": {
+        "buttonText": "Start Searching",
+        "link": "https://wa.me/918762192191"
+      }
+    }
+  ]
+}
