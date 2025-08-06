@@ -1,32 +1,24 @@
-# 🚀 Bino Dynamic Page Builder
+# Bino Page Builder
 
-This is a **Next.js App Router** project that lets you dynamically create and serve new pages via a simple POST API. Ideal for powering quick informational or promotional pages linked to **[Bino](https://bino.bot)**.
+A dynamic page generator built with **Next.js App Router**, capable of creating pages via a `POST /api/pages` API.
 
-## Github Link
-https://github.com/tsujit74/bino-page-builder
+## 🚀 Features
+- 5 reusable components: `TextSection`, `StatsBox`, `ImageBlock`, `Card`, `CTA`
+- Dynamic pages served at `/[slug]`
+- At least one component shows an image ✅
+- API for creating pages dynamically
 
-## 🧠 How It Works
+## 🧪 Sample Pages
+- [About Bino](https://bino-page-builder.vercel.app/about-bino)
+- [How It Works](https://bino-page-builder.vercel.app/how-it-works)
 
-Use the `/api/pages` endpoint to create new pages by sending a `slug` and an array of components.
+## 🛠️ API Endpoint
 
-### ✅ POST Endpoint
+`POST /api/pages`
 
-POST /api/pages
-Content-Type: application/json
-### 🔧 Request Body
-{
-  "slug": "about-bino",
-  "components": [
-    { "type": "TextSection", "props": { "title": "What is Bino?", "text": "Bino is a WhatsApp-based search assistant." } },
-    { "type": "StatsBox", "props": { "label": "Users", "value": "10K+" } },
-    { "type": "ImageBlock", "props": { "src": "/bino.png", "alt": "Bino Logo" } },
-    { "type": "CTA", "props": { "buttonText": "Try Bino", "link": "https://bino.bot" } }
-  ]
-}
-
-## Sample CURL
-
-curl -X POST https://your-app.vercel.app/api/pages \
+### Example `curl`
+```bash
+curl -X POST https://bino-page-builder.vercel.app/api/pages \
   -H "Content-Type: application/json" \
   -d '{
     "slug": "about-bino",
@@ -34,9 +26,10 @@ curl -X POST https://your-app.vercel.app/api/pages \
       { "type": "TextSection", "props": { "title": "What is Bino?", "text": "Bino is a WhatsApp-based search assistant." } },
       { "type": "StatsBox", "props": { "label": "Users", "value": "10K+" } },
       { "type": "ImageBlock", "props": { "src": "/bino.png", "alt": "Bino Logo" } },
-      { "type": "CTA", "props": { "buttonText": "Try Bino", "link": "https://bino.bot" } }
+      { "type": "CTA", "props": { "buttonText": "Try Bino", "link": "https://bot.in" } }
     ]
   }'
+
 
 ## 🔗 Live Demo
 https://bino-page-builder.vercel.app/about-bino
