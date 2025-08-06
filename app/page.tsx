@@ -1,4 +1,3 @@
-// app/page.tsx
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center px-6 py-16 bg-gray-50 dark:bg-zinc-950 text-center">

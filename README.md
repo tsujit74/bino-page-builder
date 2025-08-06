@@ -2,7 +2,8 @@
 
 This is a **Next.js App Router** project that lets you dynamically create and serve new pages via a simple POST API. Ideal for powering quick informational or promotional pages linked to **[Bino](https://bino.bot)**.
 
----
+## Github Link
+https://github.com/tsujit74/bino-page-builder
 
 ## 🧠 How It Works
 
@@ -36,7 +37,6 @@ curl -X POST https://your-app.vercel.app/api/pages \
       { "type": "CTA", "props": { "buttonText": "Try Bino", "link": "https://bino.bot" } }
     ]
   }'
-
 
 ## 🔗 Live Demo
 https://your-app.vercel.app/about-bino

@@ -1,3 +1,5 @@
+// app/api/pages/route.ts
+
 import { NextResponse } from 'next/server';
 import { savePage } from '../../lib/pages-store';
 
@@ -10,10 +12,10 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Invalid payload' }, { status: 400 });
     }
 
-    savePage(slug,components);
-
+    savePage(slug, components);
     return NextResponse.json({ message: `Page '/${slug}' created.` }, { status: 200 });
-  } catch (error) {
+
+  } catch {
     return NextResponse.json({ error: 'Server error' }, { status: 500 });
   }
 }
