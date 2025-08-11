@@ -18,10 +18,10 @@ A dynamic page generator built with **Next.js App Router**, capable of creating 
 
 ### Example `curl`
 ```bash
-curl -X POST https://bino-page-builder.vercel.app/api/pages \
+curl --ssl-no-revoke -X POST https://bino-page-builder.vercel.app/api/pages \
   -H "Content-Type: application/json" \
   -d '{
-    "slug": "about-bino",
+    "slug": "bino-info", 
     "components": [
       { "type": "TextSection", "props": { "title": "What is Bino?", "text": "Bino is a WhatsApp-based search assistant." } },
       { "type": "StatsBox", "props": { "label": "Users", "value": "10K+" } },
