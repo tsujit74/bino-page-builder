@@ -1,7 +1,3 @@
-import fs from 'fs';
-import path from 'path';
-
-
 export type ComponentType = 'TextSection' | 'ImageBlock' | 'Card' | 'StatsBox' | 'CTA';
 
 export type PageComponent = {
@@ -9,20 +5,12 @@ export type PageComponent = {
   props: Record<string, unknown>;
 };
 
-
-const DATA_PATH = path.join(process.cwd(), 'pages.json');
+const pagesStore = new Map<string, PageComponent[]>();
 
 export function savePage(slug: string, components: PageComponent[]) {
-  const data: Record<string, PageComponent[]> = fs.existsSync(DATA_PATH)
-    ? JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8'))
-    : {};
-
-  data[slug] = components;
-  fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2));
+  pagesStore.set(slug, components);
 }
 
 export function getPage(slug: string): PageComponent[] | null {
-  if (!fs.existsSync(DATA_PATH)) return null;
-  const data: Record<string, PageComponent[]> = JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8'));
-  return data[slug] || null;
+  return pagesStore.get(slug) || null;
 }
