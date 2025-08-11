@@ -1,4 +1,3 @@
-// app/api/pages/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { savePage } from '../../lib/pages-store';
 
@@ -11,10 +10,8 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid payload' }, { status: 400 });
     }
 
-    // Add console log for debugging
     console.log('Saving page:', slug, components);
 
-    // Defensive try-catch around savePage
     try {
       savePage(slug, components);
     } catch (err) {
@@ -23,7 +20,6 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ message: `Page '/${slug}' created.` }, { status: 201 });
-
   } catch (err) {
     console.error('API POST error:', err);
     return NextResponse.json({ error: 'Server error' }, { status: 500 });

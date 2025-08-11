@@ -1,12 +1,34 @@
-// app/[slug]/page.tsx
+import React from 'react';
 import { getPage, PageComponent } from '../lib/pages-store';
-import TextSection from '../components/TextSection';
-import ImageBlock from '../components/ImageBlock';
-import Card from '../components/Card';
-import StatsBox from '../components/StatsBox';
-import CTA from '../components/CTA';
 
-const componentMap: { [key: string]: React.FC<any> } = {
+const TextSection: React.FC<{ title: string; text: string }> = ({ title, text }) => (
+  <section>
+    <h2 className="text-2xl font-bold">{title}</h2>
+    <p>{text}</p>
+  </section>
+);
+
+const ImageBlock: React.FC<{ src: string; alt: string }> = ({ src, alt }) => (
+  <img src={src} alt={alt} className="max-w-full rounded" />
+);
+
+const Card: React.FC<{ content: string }> = ({ content }) => (
+  <div className="p-4 border rounded shadow">{content}</div>
+);
+
+const StatsBox: React.FC<{ label: string; value: string }> = ({ label, value }) => (
+  <div>
+    <strong>{value}</strong> <span>{label}</span>
+  </div>
+);
+
+const CTA: React.FC<{ buttonText: string; link: string }> = ({ buttonText, link }) => (
+  <a href={link} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
+    {buttonText}
+  </a>
+);
+
+const componentMap: Record<string, React.FC<any>> = {
   TextSection,
   ImageBlock,
   Card,
@@ -14,13 +36,16 @@ const componentMap: { [key: string]: React.FC<any> } = {
   CTA,
 };
 
-export default async function DynamicPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const blocks = getPage(slug);
+type Props = {
+  params: { slug: string };
+};
+
+export default async function DynamicPage({ params }: Props) {
+  const blocks = getPage(params.slug);
 
   if (!blocks) {
     return (
-      <main className="min-h-screen flex items-center justify-center text-red-500">
+      <main className="min-h-screen flex items-center justify-center text-red-600">
         Page not found or not yet created.
       </main>
     );
@@ -28,9 +53,9 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
 
   return (
     <main className="max-w-3xl mx-auto px-4 py-10 space-y-8">
-      {blocks.map((block: PageComponent, index: number) => {
+      {blocks.map((block: PageComponent, i: number) => {
         const Component = componentMap[block.type];
-        return Component ? <Component key={index} {...block.props} /> : null;
+        return Component ? <Component key={i} {...block.props} /> : null;
       })}
     </main>
   );
