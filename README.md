@@ -18,7 +18,7 @@ A dynamic page generator built with **Next.js App Router**, capable of creating 
 
 ### Example `curl`
 ```bash
-curl -X POST http://localhost:3000/api/pages \
+curl -X POST https://bino-page-builder.vercel.app/api/pages \
   -H "Content-Type: application/json" \
   -d '{
     "slug": "about-bino",
