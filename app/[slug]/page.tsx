@@ -37,11 +37,12 @@ const componentMap: Record<string, React.FC<any>> = {
 };
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export default async function DynamicPage({ params }: Props) {
-  const blocks = getPage(params.slug);
+  const { slug } = await params;
+  const blocks = getPage(slug);
 
   if (!blocks) {
     return (
